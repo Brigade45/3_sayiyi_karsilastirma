@@ -1,48 +1,63 @@
 #include<stdio.h>
 #include<conio.h>
+int sayi_sirala();
 int main()
 {
-	int a, b, c, x,y;
+	sayi_sirala();
+	_getch();
+	return 0;
+}
+
+int sayi_sirala()
+{
+	int a, b, c, x, y, z;
 	printf("3 sayi giriniz:\n");
 	scanf_s("%d %d %d", &a, &b, &c);
 	if (b > a) // b>a
 	{
-			if (b > c) // b>c , b>a
-			{
-				x = b;
-				if (a > c) // b>a>c
-				{
-					y = c;
-				}
-				else // b>c>a
-				{
-					y = a;
-				}
-			}
-			else
-			{
-				x = c;
-				y = a;
-			}
-	}
-			else if (a > c) // a>c , a>b
-	{
-				x = a;
-				if (b > c) // a>b>c
+		if (b > c) // b>c , b>a
+		{
+			x = b;
+			if (a > c) // b>a>c
 			{
 				y = c;
+				z = a;
 			}
-				else
+			else // b>c>a
 			{
-				y = b;
+				y = a;
+				z = c;
 			}
+		}
+		else
+		{
+			z = b;
+			x = c;
+			y = a;
+		}
 	}
-			else // b<a , a<c
+	else if (a > c) // a>c , a>b
 	{
-				x = c;
-				y = b;
+		x = a;
+		if (b > c) // a>b>c
+		{
+			y = c;
+			z = b;
+		}
+		else
+		{
+			y = b;
+			z = c;
+		}
 	}
-	printf("buyuk sayi %d dir \n", x);
-	printf("kucuk sayi %d dir \n", y);
-	_getch();
+	else // b<a , a<c
+	{
+		z = a;
+		x = c;
+		y = b;
+	}
+	printf("buyuk sayi %d dir. \n", x);
+	printf("ortanca sayi %d dir. \n", z);
+	printf("kucuk sayi %d dir. \n", y);
+	return 0;
 }
